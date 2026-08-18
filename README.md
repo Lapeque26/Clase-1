@@ -53,9 +53,10 @@ Crear algo
 
 ## Proceso de trabajo con IA
 
-El trabajo comenzó con una idea inicial y luego cambió de enfoque hacia una
-comparación de filamentos PLA. Durante la investigación hubo dificultades para
-acceder a algunas tiendas debido a errores 401 y 403, por lo que se configuró
-un acceso restringido a internet y se verificaron los precios disponibles.
-Codex creó los archivos del proyecto, pero no pudo crear el pull request de
-forma automática. Finalmente, el PR se creó manualmente desde GitHub.
+El proyecto comenzó con una idea inicial distinta y luego cambió de enfoque hacia un comparador de precios de filamentos PLA por color.
+Durante el desarrollo se trabajó con Codex como agente de IA, sin escribir código manualmente. A partir de instrucciones en lenguaje natural, Codex creó la estructura del proyecto, la lógica de búsqueda, el ordenamiento de precios, la identificación de la opción más barata y los archivos necesarios para que la aplicación funcione.
+Durante la investigación aparecieron varios problemas técnicos. Al intentar acceder automáticamente a tiendas online, algunas páginas devolvieron errores HTTP 401 Unauthorized y HTTP 403 Forbidden. Por este motivo se configuró el acceso a internet del agente de forma restringida, habilitando únicamente los dominios necesarios. Aun así, algunas tiendas continuaron bloqueando el acceso automatizado.
+También aparecieron limitaciones del entorno de Codex. En particular, el agente informó que la herramienta make_pr no estaba disponible en el entorno y que el repositorio no tenía un remoto Git configurado dentro de ese runtime. Por ese motivo no fue posible crear el pull request automáticamente desde Codex.
+La solución fue crear el pull request manualmente desde GitHub. Más adelante apareció un conflicto de merge en el archivo README.md, porque una rama contenía los archivos del proyecto y otra contenía la documentación del proceso. El conflicto se resolvió conservando ambos cambios y luego se fusionaron correctamente las ramas con main.
+Además, algunas fuentes no pudieron incorporarse porque sus precios no podían verificarse de forma confiable o porque los productos estaban sin stock. Por ese motivo se decidió no inventar datos y trabajar únicamente con información que pudiera verificarse.
+El proceso permitió trabajar de manera iterativa con un agente de IA: describir el objetivo, revisar los resultados, detectar errores, ajustar las instrucciones y resolver limitaciones del entorno sin necesidad de programar manualmente.
